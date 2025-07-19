@@ -1,0 +1,86 @@
+###   Pzem-016   ###     rs485  modbus tcp  ###
+
+modbus:
+  - name: Pzem
+    type: tcp         
+    host: 192.178.xxx.xxx                    ###   add converter ip address
+    port: 23xx                               ###   add converter port
+    #delay: 0
+    #message_wait_milliseconds: 1000
+    #timeout: 4
+
+    sensors:
+
+      - name: Pzem_Voltage
+        unique_id: Pzem_Voltage
+        unit_of_measurement: "V"
+        slave: 1
+        address: 0
+        scale: 0.1
+        input_type: input
+        device_class: energy
+        precision: 2
+        scan_interval: 1
+
+      - name: Pzem_Current
+        unique_id: Pzem_Current
+        unit_of_measurement: "A"
+        slave: 1
+        address: 1
+        scale: 0.001
+        input_type: input
+        device_class: energy
+        precision: 2
+        scan_interval: 1
+
+      - name: Pzem_Power_Instant
+        unique_id: Pzem_Power_Instant
+        unit_of_measurement: "W"
+        slave: 1
+        address: 3
+        scale: 0.1
+        input_type: input
+        device_class: energy
+        precision: 2
+        scan_interval: 1  
+
+      - name: Pzem_Consumo
+        unique_id: Pzem_Consumo
+        unit_of_measurement: "Kwh"
+        slave: 1
+        address: 5
+        scale: 0.001
+        input_type: input
+        device_class: energy
+        precision: 2
+        scan_interval: 1
+
+      - name: Pzem_Frequency
+        unique_id: Pzem_Frequency
+        unit_of_measurement: "Hz"
+        slave: 1
+        address: 7
+        scale: 0.1
+        input_type: input
+        device_class: energy
+        precision: 2
+        scan_interval: 1
+
+      - name: Pzem_Power_Factor
+        unique_id: Pzem_Power_Factor
+        unit_of_measurement: "Pf"
+        slave: 1
+        address: 8
+        scale: 0.01
+        input_type: input
+        device_class: energy
+        precision: 2
+        scan_interval: 1  
+
+      - name: Pzem_Alarm_Status
+        unique_id: Pzem_Alarm_Status
+        slave: 1
+        address: 9
+        input_type: input
+        scan_interval: 1
+        
